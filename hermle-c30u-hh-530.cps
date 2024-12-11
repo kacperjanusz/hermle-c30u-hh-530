@@ -55,6 +55,14 @@ properties = {
     value      : true,
     scope      : "post"
   },
+    measureTools: {
+    title      : "Measure tools",
+    description: "Measure all tools before program start",
+    group      : "formats",
+    type       : "boolean",
+    value      : true,
+    scope      : "post"
+  },
   writeVersion: {
     title      : "Write version",
     description: "Write the version number in the header of the code.",
@@ -514,11 +522,18 @@ function onOpen() {
         if (tool.productId) {
           writeComment("    " + tool.productId);
         }
+        if (getProperty("measureTools")) {
+          var toolCallCommand = "TOOL CALL " + tool.number + " S3000"
+          writeBlock(toolCallCommand)
+          onCommand(COMMAND_TOOL_MEASURE)
+        }
       }
       writeSeparator();
       writeComment("");
     }
   }
+
+
 
   //Probing Surface Inspection
   if (typeof inspectionWriteVariables == "function") {
@@ -3086,8 +3101,13 @@ function onCommand(command) {
   case COMMAND_STOP_CHIP_TRANSPORT:
     return;
   case COMMAND_BREAK_CONTROL:
+      // call blum probe program saved in TNC
+      writeBlock("CALL PGM TNC:BLUM\\BLUM586");
+      return;
     return;
   case COMMAND_TOOL_MEASURE:
+          // call blum probe program saved in TNC
+      writeBlock("CALL PGM TNC:BLUM\\BLUM583");
     return;
   case COMMAND_PROBE_ON:
     return;
@@ -3233,6 +3253,13 @@ function writeRetract() {
       error(localize("Unsupported safe position method."));
       return;
     }
+  }
+}
+
+function onPassThrough(text) {
+  var commands = String(text).split(",");
+  for (text in commands) {
+    writeBlock(commands[text]);
   }
 }
 
