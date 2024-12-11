@@ -10,14 +10,14 @@
   FORKID {6C22D074-6059-43A4-8AD9-B7E2CCA4B6A9}
 */
 
-description = "Hermle C12U";
+description = "Hermle C30U";
 vendor = "Hermle";
 vendorUrl = "https://www.hermle.de/en";
 legal = "Copyright (C) 2012-2024 by Autodesk, Inc.";
 certificationLevel = 2;
 minimumRevision = 45702;
 
-longDescription = "5-axis post for Hermle C12U with a Heidenhain control.";
+longDescription = "5-axis post for Hermle C30U with a Heidenhain 530 control.";
 
 extension = "h";
 if (getCodePage() == 932) { // shift-jis is not supported
