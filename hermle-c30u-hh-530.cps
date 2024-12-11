@@ -58,7 +58,7 @@ properties = {
     measureTools: {
     title      : "Measure tools",
     description: "Measure all tools before program start",
-    group      : "formats",
+    group      : "probing",
     type       : "boolean",
     value      : true,
     scope      : "post"
@@ -522,7 +522,7 @@ function onOpen() {
         if (tool.productId) {
           writeComment("    " + tool.productId);
         }
-        if (getProperty("measureTools")) {
+        if (getProperty("measureTools" && tool.number != 32)) {
           var toolCallCommand = "TOOL CALL " + tool.number + " S3000"
           writeBlock(toolCallCommand)
           onCommand(COMMAND_TOOL_MEASURE)
