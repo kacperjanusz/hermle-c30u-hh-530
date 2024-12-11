@@ -1317,9 +1317,9 @@ function onSection() {
       onCommand(COMMAND_OPTIONAL_STOP);
     }
 
-    if (!isFirstSection()) {
-      onCommand(COMMAND_BREAK_CONTROL);
-    }
+    // if (!isFirstSection()) {
+    //   onCommand(COMMAND_BREAK_CONTROL);
+    // }
 
     if (false) {
       var zRange = currentSection.getGlobalZRange();
@@ -1348,7 +1348,7 @@ function onSection() {
       writeComment(tool.comment);
     }
 
-    onCommand(COMMAND_TOOL_MEASURE);
+    // onCommand(COMMAND_TOOL_MEASURE);
 
     if (getProperty("preloadTool")) {
       var nextTool = (getProperty("toolAsName") ? getNextToolDescription(tool.description) : getNextTool(tool.number));
@@ -3269,9 +3269,9 @@ function onClose() {
   setTolerance(0);
   setCoolant(COOLANT_OFF);
 
-  if (getNumberOfSections() > 0) {
-    onCommand(COMMAND_BREAK_CONTROL);
-  }
+  // if (getNumberOfSections() > 0) {
+  //   onCommand(COMMAND_BREAK_CONTROL);
+  // }
 
   onCommand(COMMAND_STOP_SPINDLE);
 
