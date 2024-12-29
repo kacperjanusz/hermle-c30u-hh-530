@@ -1276,8 +1276,8 @@ function onSection() {
     }
 
     if (fullRetract) {
-      // writeRetract(X);
-      // writeRetract(Y);
+      writeRetract(X);
+      writeRetract(Y);
     }
   }
 
@@ -1378,8 +1378,8 @@ function onSection() {
 
     if (fullRetract) {
       writeRetract(Z);
-      // writeRetract(X);
-      // writeRetract(Y);
+      writeRetract(X);
+      writeRetract(Y);
     } else {
       // simple retract
       writeRetract(Z);
