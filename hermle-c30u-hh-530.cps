@@ -416,12 +416,10 @@ function onOpen() {
     optimizeMachineAngles2(0); // using M128 mode
   }
 
-  /*
   // NOTE: setup your home positions here
-  machineConfiguration.setRetractPlane(-20.415); // home position Z
-  machineConfiguration.setHomePositionX(-200); // home position X
-  machineConfiguration.setHomePositionY(-5); // home position Y
-*/
+  // machineConfiguration.setRetractPlane(-20.415); // home position Z
+  machineConfiguration.setHomePositionX(325.6); // home position X
+  machineConfiguration.setHomePositionY(599); // home position Y
 
   if (!machineConfiguration.isMachineCoordinate(0)) {
     aOutput.disable();
