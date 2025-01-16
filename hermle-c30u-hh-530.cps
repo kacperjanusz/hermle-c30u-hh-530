@@ -150,7 +150,7 @@ properties = {
     description: "Specifies to use M140 MB MAX for Z-axis retracts instead of M91/M92 positions.",
     group      : "homePositions",
     type       : "boolean",
-    value      : true,
+    value      : false,
     scope      : "post"
   },
   useSubroutines: {
@@ -417,7 +417,7 @@ function onOpen() {
   }
 
   // NOTE: setup your home positions here
-  // machineConfiguration.setRetractPlane(-20.415); // home position Z
+  machineConfiguration.setRetractPlane(500.1); // home position Z
   machineConfiguration.setHomePositionX(325.6); // home position X
   machineConfiguration.setHomePositionY(599); // home position Y
 
