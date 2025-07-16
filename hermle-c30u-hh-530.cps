@@ -55,14 +55,6 @@ properties = {
     value      : true,
     scope      : "post"
   },
-    measureTools: {
-    title      : "Measure tools",
-    description: "Measure all tools before program start",
-    group      : "probing",
-    type       : "boolean",
-    value      : true,
-    scope      : "post"
-  },
   writeVersion: {
     title      : "Write version",
     description: "Write the version number in the header of the code.",
@@ -519,16 +511,6 @@ function onOpen() {
         }
         if (tool.productId) {
           writeComment("    " + tool.productId);
-        }
-        if (getProperty("measureTools")) {
-          if (tool.number !== 32) {
-              var toolCallCommand = "TOOL CALL " + tool.number + " S3000"
-              writeBlock(toolCallCommand)
-              onCommand(COMMAND_TOOL_MEASURE)
-          }
-          else {
-            writeComment("Touch probe will not be measured")
-          }
         }
       }
       writeSeparator();
@@ -1351,7 +1333,6 @@ function onSection() {
       writeComment(tool.comment);
     }
 
-    // onCommand(COMMAND_TOOL_MEASURE);
 
     if (getProperty("preloadTool")) {
       var nextTool = (getProperty("toolAsName") ? getNextToolDescription(tool.description) : getNextTool(tool.number));
