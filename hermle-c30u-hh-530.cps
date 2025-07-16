@@ -3084,8 +3084,11 @@ function onCommand(command) {
     writeBlock(mFormat.format(25));
     return;
   case COMMAND_START_CHIP_TRANSPORT:
+    // start chip transport in a paused manner
+    writeBlock(mFormat.format(21));
     return;
   case COMMAND_STOP_CHIP_TRANSPORT:
+    writeBlock(mFormat.format(23));
     return;
   case COMMAND_BREAK_CONTROL:
       // call blum probe program saved in TNC
