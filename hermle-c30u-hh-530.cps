@@ -528,6 +528,9 @@ function onOpen() {
   if (machineConfiguration.isMultiAxisConfiguration()) {
     setTCP(false);
   }
+
+  // turn A and C axis to 0 on program start
+  writeBlock("PLANE RESET TURN F AUTO");
 }
 
 function onComment(message) {
