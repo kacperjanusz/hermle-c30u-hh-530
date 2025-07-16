@@ -3302,6 +3302,9 @@ function onClose() {
   }
 
   onCommand(COMMAND_STOP_CHIP_TRANSPORT);
+  
+  // open machine door
+  writeBlock(mFormat.format(31));
   writeBlock(mFormat.format(30)); // stop program, spindle stop, coolant off
 
   if (typeof inspectionProgramEnd == "function") {
