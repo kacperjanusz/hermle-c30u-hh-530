@@ -237,14 +237,14 @@ var singleLineCoolant = false; // specifies to output multiple coolant codes in 
 // {id: COOLANT_THROUGH_TOOL, on: [8, 88], off: [9, 89]}
 // {id: COOLANT_THROUGH_TOOL, on: "M88 P3 (myComment)", off: "M89"}
 var coolants = [
-  {id:COOLANT_FLOOD, on:8},
+  {id:COOLANT_FLOOD, on:[8, 10], off: 9},
   {id:COOLANT_MIST},
   {id:COOLANT_THROUGH_TOOL, on:51, off:52},
-  {id:COOLANT_AIR, on:7},
-  {id:COOLANT_AIR_THROUGH_TOOL, on:12},
-  {id:COOLANT_SUCTION},
-  {id:COOLANT_FLOOD_MIST},
-  {id:COOLANT_FLOOD_THROUGH_TOOL},
+  {id:COOLANT_AIR, on: [7, 10], off: 9 },
+  {id:COOLANT_AIR_THROUGH_TOOL, on:12, off: 9},
+  {id:COOLANT_SUCTION, on: 10, off: 9},
+  {id:COOLANT_FLOOD_MIST, on: [8, 7, 10], off: 9},
+  {id:COOLANT_FLOOD_THROUGH_TOOL, on:[51, 8, 10], off:[52, 9]},
   {id:COOLANT_OFF, off:9}
 ];
 
